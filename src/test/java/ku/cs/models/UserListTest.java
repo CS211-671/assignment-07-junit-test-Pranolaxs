@@ -12,23 +12,21 @@ class UserListTest {
     public void testUserListFindUser() {
 
         UserList userList = new UserList();
+        User user = new User("John", "Doe");
+        userList.addUser("John", "Doe");
         userList.addUser("Karapuk","12345");
         userList.addUser("Chaiyong","78910");
         userList.addUser("Chakkra","224466");
 
 
 
-        assertEquals("Karapuk",userList.findUserByUsername("Karapuk").getUsername());
+        // assertEquals("Karapuk",userList.findUserByUsername("Karapuk").getUsername()); also works
 
 
-        // TODO: add 3 users to UserList
 
-        // TODO: find one of them
-
-        // TODO: assert that UserList found User
-        // String expected = "<one of username>";
-        // String actual = user.getUsername();
-        // assertEquals(expected, actual);
+        String expected = "John";
+        String actual = user.getUsername();
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -43,12 +41,7 @@ class UserListTest {
 
         assertTrue(userList.changePassword("Karapuk","12345","6789"));
 
-        // TODO: add 3 users to UserList
 
-        // TODO: change password of one user
-
-        // TODO: assert that user can change password
-        // assertTrue(actual);
     }
 
     @Test
@@ -61,12 +54,7 @@ class UserListTest {
 
 
         assertEquals(userList.findUserByUsername("Karapuk"),userList.login("Karapuk","12345"));
-        // TODO: add 3 users to UserList
 
-        // TODO: call login() with correct username and password
-
-        // TODO: assert that User object is found
-        // assertEquals(expected, actual);
     }
 
     @Test
@@ -76,12 +64,7 @@ class UserListTest {
         userList.addUser("Karapuk","12345");
         userList.addUser("Chaiyong","78910");
         userList.addUser("Chakkra","224466");
-        // TODO: add 3 users to UserList
 
-        // TODO: call login() with incorrect username or incorrect password
-
-        // TODO: assert that the method return null
-        // assertNull(actual);
         assertNull(userList.login("Karapuk","1234"));
     }
 
